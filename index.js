@@ -333,7 +333,7 @@ app.post('/api/users/:user_id/exercises', (req, res) => {
               return res.status(500).json({ error: 'Error adding exercise!' });
             }
             //else send new inserted exercise
-            return res.status(200).json({ _id: user_id, username: uidData?.username, description, duration, date: db_date.toDateString() });
+            return res.status(200).json({ _id: user_id, username: uidData?.username, description, duration: Number(duration), date: db_date.toDateString() });
           });
         } else {
           //If user not found
